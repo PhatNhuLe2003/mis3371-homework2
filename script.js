@@ -13,7 +13,15 @@ function showDate()
                     year: 'numeric'
                 }
             );
-        }
+            const dobInput = document.getElementById("dob");
+
+            const maxDate = new Date();
+            const minDate = new Date();
+            minDate.setFullYear(maxDate.getFullYear() - 120);
+
+                dobInput.max = maxDate.toISOString().split("T")[0];
+                dobInput.min = minDate.toISOString().split("T")[0];
+        }        
         function validatePassword()     
             {
                 const pw = document.querySelector('input[name="password"]').value;
