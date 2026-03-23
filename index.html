@@ -46,13 +46,21 @@ Captures demographic and medical information. This part of the form is all my HT
     
 <tr>
     <td colspan="2">
-        <input type="text" name="first_name" maxlength="30" required>
+        <input type="text" name="first_name" maxlength="30" required
+            pattern="[A-Za-z'-]{1,30}"
+            title="Enter 1-30 characters. Letters, apostrophes, and dashes only">
     </td>
+    
      <td colspan="1">
-        <input type="text" name="middle_initial" maxlength="1">
+        <input type="text" name="middle_initial" maxlength="1"
+            pattern="[A-Za-z]?"
+            title="Enter one letter only">
     </td>
+    
   <td colspan="3">
-    <input type="text" name="last_name" maxlength="30" required>
+    <input type="text" name="last_name" maxlength="30" required
+        pattern="[A-Za-z0-9'-]{1,30}"
+        title="Enter 1-30 characters, Letters, apostrophes, and dashes, and suffix numbers allowed">
   </td>
 </tr>
 <!-- DOB / SSN -->
@@ -61,8 +69,9 @@ Captures demographic and medical information. This part of the form is all my HT
     <td colspan="3">Social Security Number <span class="required">*</span></td>
 </tr>
 <tr>
-    <td colspan="3"><input type="date" name="dob" id="dob" required></td>
-    <td colspan="3"><input type="text" name="ssn" placeholder="xxx-xx-xxxx" 
+    <td colspan="3"><input type="date" name="dob" id="dob" required
+                        title="Select a valid birth date></td>
+    <td colspan="3"><input type="password" name="ssn" placeholder="xxx-xx-xxxx" 
                             pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}"
                             title="Format: 123-45-6789" required></td>
 </tr>
