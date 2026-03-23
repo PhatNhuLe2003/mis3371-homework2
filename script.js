@@ -50,16 +50,21 @@ function showDate()
          const mm = parts[1];
          const dd = parts[2];
 
-         dobInput.type = "text";
-         dobInput.value = `${mm}/${dd}/${yyyy}`;
-
-         return true;
+         function formatDOB()
+         {
+                 return true;
+         }        
      }
 
 function validateDOB()
         {
                 const dobInput = document.getElementById("dob").value;
-                if (!dobInput) return false;
+                if (!dobInput) 
+                {
+                        alert("Please enter your date of birth.");
+                        return false;
+                }
+                
 
                 const dob = new Date(dobInput);
                 const today = new Date();
@@ -83,3 +88,18 @@ function validateForm()
         {
                 return validatePassword() && formatDOB() && validateDOB();
         }
+window.onload = function()
+{
+        showDate();
+        
+document.querySelector('input[name="phone"]').addEventListener('input', function(e)
+        {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 6)
+                        e.target.value = value.slice(0,3) + '-' + value.slice(3,6) + '-' + value.slice(6,10);
+                                else if (value.length >= 3)
+                                        e.target.value = value.slice(0,3) + '-' + value.slice(3);
+                else
+                    e.target.value = value;                    
+        });
+};                                                              
