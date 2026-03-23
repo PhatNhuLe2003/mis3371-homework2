@@ -47,7 +47,31 @@ function showDate()
 
          return true;
      }
-    function validateForm()
+
+function validateDOB()
         {
-            return validatePassword() && formatDOB();
+                const dobInput = document.getElementById("dob").value;
+                if (!dobInput) return false;
+
+                const dob = new Date(dobInput);
+                const today = new Date();
+
+                const minDate = new Date();
+                minDate.setFullYear(today.getFullYear() - 120);
+
+                if (dob < minDate)
+                        {
+                                alert("Date of birth cannot be more than 120 years ago.");
+                                return false;
+                        }
+                if (dob > today)
+                        {
+                                alert("Date of birth cannot be in the future.");
+                                return false;
+                        }
+                return true;
+        }
+function validateForm()
+        {
+                return validatePassword() && formatDOB() && validateDOB();
         }
