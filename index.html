@@ -90,8 +90,16 @@ Captures demographic and medical information. This part of the form is all my HT
     <td>Zip <span class="required">*</span></td>
 </tr>
 <tr>
-    <td colspan="3"><input type="text" name="address1" maxlength="30" required></td>
-    <td><input type="text" name="city1" maxlength="30" required></td>
+    <td colspan="3">
+        <input type="text" name="address1" maxlength="30" required
+               pattern="[A-Za-z0-9\s\.\-#]{5,30}"
+               title="5-30 characters. Letters, numbers, spaces, ., -, # allowed">
+    </td>
+    <td>
+        <input type="text" name="city1" maxlength="30" required
+               pattern="[A-Za-z\s]{2,30}" 
+               title="City must be 2-30 letters only" >
+    </td>
     <td>
         <select name="state1" required>
             <option value="" selected disabled>Select</option>
@@ -123,8 +131,16 @@ Captures demographic and medical information. This part of the form is all my HT
     <td>Zip</td>
 </tr>
 <tr>
-    <td colspan="3"><input type="text" maxlength="30"></td>
-    <td><input type="text" maxlength="30"></td>
+    <td colspan="3">
+    <input type="text" maxlength="30"
+           pattern="[A-Za-z0-9\s\.\-#]{0,30}"
+           title="Optional. Letters, numbers, spaces, ., -, # allowed">
+    </td>
+    <td>
+        <input type="text" maxlength="30"
+               pattern="[A-Za-z\s]{0,30}"
+               title="Optional city (letters only)">
+    </td>
     <td>
         <select>
             <option>Select</option>
@@ -152,10 +168,15 @@ Captures demographic and medical information. This part of the form is all my HT
     <td colspan="3">Phone Number <span class="required">*</span></td>
 </tr>
 <tr>
-    <td colspan="2"><input type="email" name="email" required></td>
+    <td colspan="2"><input type="email" name="email" required
+                            maxlength="50"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}"
+                            title="Enter a valid email (example: name@email.com)">
+    </td>
     <td colspan="3"><input type="tel" name="phone"
                             placeholder="123-456-7890"
                             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                            maxlength="12"
                             title="Format: 123-456-7890"
                             required></td>
 </tr>
