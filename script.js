@@ -117,6 +117,27 @@ function showReview()
         const gender = document.querySelector('input[name="gender"]:checked');
         content += `<strong>Gender:</strong> ${gender ? gender.value : ""}<br>`;
 
+        const consent = document.querySelector('input[name="consent"]:checked');
+        content += `<strong>Consent:</strong> ${consent ? consent.value : ""}<br>`;
+        
         const insurance = document.querySelector('input[name="insurance"]:checked');
         content += `<strong>Insurance:</strong> ${insurance ? insurance.value : ""}<br>`;
 
+        const conditions = document.querySelectorAll('input[name="conditions"]:checked');
+        let condList = [];
+        conditions.forEach(c => condList.push(c.value));
+
+        content += `<strong>Medical History:</strong> ${condList.join(", ")}<br>`;
+   
+        const pain = document.querySelector('[name="pain_scale"]').value;
+        content += `<strong>Pain Level:</strong> ${pain}<br>`;
+    
+        const user = document.querySelector('[name="user_id"]').value;
+        content += `<strong>User ID:</strong> ${user}<br>`;
+
+        const reason = document.querySelector('[name="reason_for_visit"]').value;
+        content += `<strong>Reason:</strong> ${reason}<br>`;
+        
+        document.getElementById("reviewContent").innerHTML = content;
+        document.getElementById("reviewSection").style.display = "block";
+}
