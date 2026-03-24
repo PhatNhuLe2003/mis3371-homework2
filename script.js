@@ -22,40 +22,27 @@ function showDate()
                 dobInput.max = maxDate.toISOString().split("T")[0];
                 dobInput.min = minDate.toISOString().split("T")[0];
         }        
-        function validatePassword()     
+function validatePassword()     
             {
                 const pw = document.querySelector('input[name="password"]').value;
                 const cpw = document.querySelector('input[name="confirm_password"]').value;
-
+                        if (!pw || !cpw)
+                        {
+                                  alert("Password fields cannot be empty.");
+                                  return false;      
+                        }
                         if (pw !== cpw) 
                         {
-                          alert("Passwords do not match.");
-                          return false;
+                                  alert("Passwords do not match.");
+                                  return false;
                         }
                         return true;
-  }
-     function formatDOB()
-     {
-         const dobInput = document.getElementById("dob");
-         if (!dobInput.value) return true;
-
-         const parts = dobInput.value.split("-");
-         if (parts.length !==3)
-         {
-             alert("Please enter Date of Birth in MM/DD/YYYY format.");
-             return false;
-         }
-
-         const yyyy = parts[0];
-         const mm = parts[1];
-         const dd = parts[2];
-
-         function formatDOB()
+            }
+function formatDOB()
          {
                  return true;
          }        
-     }
-
+     
 function validateDOB()
         {
                 const dobInput = document.getElementById("dob").value;
@@ -68,7 +55,7 @@ function validateDOB()
 
                 const dob = new Date(dobInput);
                 const today = new Date();
-
+                today.setHours(0,0,0,0);
                 const minDate = new Date();
                 minDate.setFullYear(today.getFullYear() - 120);
 
@@ -86,7 +73,7 @@ function validateDOB()
         }
 function validateForm()
         {
-                return validatePassword() && formatDOB() && validateDOB();
+                return validatePassword() && validateDOB();
         }
 window.onload = function()
 {
