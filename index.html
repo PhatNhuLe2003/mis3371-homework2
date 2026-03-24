@@ -188,8 +188,15 @@ Captures demographic and medical information. This part of the form is all my HT
     <td colspan="2">Confirm Password <span class="required">*</span></td>
 </tr>
 <tr>
-    <td><input type="text" name="user_id" maxlength="20" required></td>
-    <td colspan="2"><input type="password" name="password" required></td>
+    <td><input type="text" name="user_id" maxlength="20" required
+               pattern="^[A-Za-z0-9]{5,20}$"
+               title="User ID must be 5-20 characters, letters and numbers only (no spaces)">
+        
+    </td>
+    <td colspan="2"><input type="password" name="password" required
+                           pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,20}$" 
+                           title=Password must be 8-20 characters, include uppercase, lowercase, number, and special character">                       
+    </td>
     <td colspan="2"><input type="password" name="confirm_password" required></td>
 </tr>
 
