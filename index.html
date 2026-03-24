@@ -195,7 +195,7 @@ Captures demographic and medical information. This part of the form is all my HT
     </td>
     <td colspan="2"><input type="password" name="password" required
                            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,20}$" 
-                           title=Password must be 8-20 characters, include uppercase, lowercase, number, and special character">                       
+                           title="5-20 characters, must start with a letter, no spaces, only letters, numbers, _ or -">                       
     </td>
     <td colspan="2"><input type="password" name="confirm_password" required></td>
 </tr>
@@ -243,11 +243,11 @@ Captures demographic and medical information. This part of the form is all my HT
 <tr>
     <td colspan="3">
         <strong class="section-title">Medical History</strong><br>
-        <input type="checkbox"> Diabetes<br>
-        <input type="checkbox"> High Blood Pressure<br>
-        <input type="checkbox"> Heart Disease<br>
-        <input type="checkbox"> Asthma<br>
-        <input type="checkbox"> Arthritis
+        <input type="checkbox" name="conditions" value="Diabetes"> Diabetes<br>
+        <input type="checkbox" name="conditions" value="High Blood Pressure"> High Blood Pressure<br>
+        <input type="checkbox" name="conditions" value="Heart Disease"> Heart Disease<br>
+        <input type="checkbox" name="conditions" value="Asthma"> Asthma<br>
+        <input type="checkbox" name="conditions" value="Arthritis"> Arthritis
     </td>
 
     <td colspan="3" class="reason-cell">
@@ -260,13 +260,20 @@ Captures demographic and medical information. This part of the form is all my HT
 <tr>
     <td colspan="6" class="buttons">
         <input type="reset" value="Restart">
+        <input type="button" value="Review" onclick="showReview()">
         <input type="submit" value="Submit →">
     </td>
 </tr>
 
 </table>
 </form>
-
+<!-- ================= REVIEW DISPLAY ================= -->
+    
+<div id="reviewSection" style="margin-top:20px; border:1px solid black; padding:15px; display:none;">
+        <h3>PLEASE REVIEW THIS INFORMATAION</h3>
+        <div id="reviewContent"></div>
+</div>
+    
 <!-- ================= FOOTER ================= -->
 <div id="footer">
     Aegis Medical | PO Box 52914 | Houston, TX 77083 | support@aegismedical.com<br>
