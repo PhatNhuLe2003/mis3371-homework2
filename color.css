@@ -98,6 +98,7 @@ textarea
 
 input[type="submit"],
 input[type="reset"],
+input[type="button"],
 button
   {
     padding: 6px 14px;
@@ -127,6 +128,14 @@ input[type="reset"]
   {
     margin-right: 10px;
   }
+input[type="button"]
+{
+  background-color: #FFC107;
+}
+input[type="button"]:hover
+{
+  background-color: #E0A800;
+}
 
 .fixed-textarea
   {
