@@ -26,6 +26,7 @@ function validatePassword()
             {
                 const pw = document.querySelector('input[name="password"]').value;
                 const cpw = document.querySelector('input[name="confirm_password"]').value;
+                const userId = document.querySelector('input[name="user_id"]').valuetoLowerCase();
                         if (!pw || !cpw)
                         {
                                   alert("Password fields cannot be empty.");
@@ -36,6 +37,17 @@ function validatePassword()
                                   alert("Passwords do not match.");
                                   return false;
                         }
+                        if (pw.toLowerCase() === userId)
+                        {
+                                  alert("Password cannot contain your User ID.");
+                                  return false;
+                        }
+                        if (userId && pw.toLowerCase().includes(userId))
+                        {
+                                  alert("Password cannot contain your User ID.");
+                                  return false;
+                        }
+                    
                         return true;
             }
 function formatDOB()
