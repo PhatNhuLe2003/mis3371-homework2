@@ -27,6 +27,11 @@ function validatePassword()
                 const pw = document.querySelector('input[name="password"]').value;
                 const cpw = document.querySelector('input[name="confirm_password"]').value;
                 const userId = document.querySelector('input[name="user_id"]').value.toLowerCase();
+                const errorBox = document.getElementById("passwordError");
+
+                errorBox.innerText = "";
+                errorBox.style.color = "green";
+                errorBox.innerText = "Password match";
                         if (!pw || !cpw)
                         {
                                   alert("Password fields cannot be empty.");
