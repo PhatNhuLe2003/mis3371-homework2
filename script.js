@@ -141,3 +141,9 @@ function showReview()
         document.getElementById("reviewContent").innerHTML = content;
         document.getElementById("reviewSection").style.display = "block";
 }
+
+function updatePainValue()
+{
+        const value = document.getElementById("pain").value;
+        document.getElementById("painValue").innerText = value;
+}
