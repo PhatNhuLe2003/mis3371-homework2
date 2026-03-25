@@ -34,25 +34,25 @@ function validatePassword()
                         if (!pw || !cpw)
                         {
                                 errorBox.style.color = "red";  
-                                errorBox("Password fields cannot be empty.");
+                                errorBox.innerText = ("Password fields cannot be empty.");
                                   return false;      
                         }
                         if (pw !== cpw) 
                         {
                                 errorBox.style.color = "red";
-                                errorBox("Passwords do not match.");
+                                errorBox.innerText = ("Passwords do not match.");
                                   return false;
                         }
                         if (pw.toLowerCase() === userId)
                         {
                                 errorBox.style.color = "red";
-                                errorBox("Password cannot contain your User ID.");
+                                errorBox.innerText = ("Password cannot contain your User ID.");
                                   return false;
                         }
                         if (userId && pw.toLowerCase().includes(userId))
                         {
                                 errorBox.style.color = "red";
-                                errorBox("Password cannot contain your User ID.");
+                                errorBox.innerText = ("Password cannot contain your User ID.");
                                   return false;
                         }
                     
@@ -110,13 +110,18 @@ document.querySelector('input[name="phone"]').addEventListener('input', function
                                         e.target.value = value.slice(0,3) + '-' + value.slice(3);
                                         
                 else
-                    e.target.value = value;                    
+                        e.target.value = value;                    
         });
-document.getElementById('ssn").addEventListener("input", function(e)
+document.getElementById("ssn").addEventListener("input", function(e)
         {
                 let value = e.target.value.replace(/\D/g, '');
-                if (value.length. >=5)
+                if (value.length >=5)
                         e.target.value = value.slice(0,3) + '-' + value.slice(3,5) + '-' + value.slice(5,9);
+                                else if (value.length >= 3)
+                                        e.target.value = value.slice(0,3) + '-' + value.slice(3);
+                else
+                        e.target.value = value;
+        });
         
 document.querySelector('input[name="user_id"]').addEventListener('input', function(e)
         {
