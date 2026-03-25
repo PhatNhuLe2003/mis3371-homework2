@@ -30,30 +30,35 @@ function validatePassword()
                 const errorBox = document.getElementById("passwordError");
 
                 errorBox.innerText = "";
-                errorBox.style.color = "green";
-                errorBox.innerText = "Password match";
+
                         if (!pw || !cpw)
                         {
-                                  alert("Password fields cannot be empty.");
+                                errorBox.style.color = "red";  
+                                errorBox("Password fields cannot be empty.");
                                   return false;      
                         }
                         if (pw !== cpw) 
                         {
-                                  alert("Passwords do not match.");
+                                errorBox.style.color = "red";
+                                errorBox("Passwords do not match.");
                                   return false;
                         }
                         if (pw.toLowerCase() === userId)
                         {
-                                  alert("Password cannot contain your User ID.");
+                                errorBox.style.color = "red";
+                                errorBox("Password cannot contain your User ID.");
                                   return false;
                         }
                         if (userId && pw.toLowerCase().includes(userId))
                         {
-                                  alert("Password cannot contain your User ID.");
+                                errorBox.style.color = "red";
+                                errorBox("Password cannot contain your User ID.");
                                   return false;
                         }
                     
-                        return true;
+                errorBox.style.color = "green";
+                errorBox.innerText = "Password match";
+                return true;
             }
 function formatDOB()
          {
