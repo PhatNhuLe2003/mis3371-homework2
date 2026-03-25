@@ -89,6 +89,10 @@ document.querySelector('input[name="phone"]').addEventListener('input', function
                 else
                     e.target.value = value;                    
         });
+document.querySelector('input[name="user_id"]).addEventListener('input', function(e)
+        {
+                e.target.value = e.target.value.toLowerCase();
+        });
 };    
 
 function showReview()
