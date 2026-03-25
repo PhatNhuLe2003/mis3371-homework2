@@ -26,7 +26,7 @@ function validatePassword()
             {
                 const pw = document.querySelector('input[name="password"]').value;
                 const cpw = document.querySelector('input[name="confirm_password"]').value;
-                const userId = document.querySelector('input[name="user_id"]').valuetoLowerCase();
+                const userId = document.querySelector('input[name="user_id"]').value.toLowerCase();
                         if (!pw || !cpw)
                         {
                                   alert("Password fields cannot be empty.");
@@ -101,7 +101,7 @@ document.querySelector('input[name="phone"]').addEventListener('input', function
                 else
                     e.target.value = value;                    
         });
-document.querySelector('input[name="user_id"]).addEventListener('input', function(e)
+document.querySelector('input[name="user_id"]').addEventListener('input', function(e)
         {
                 e.target.value = e.target.value.toLowerCase();
         });
@@ -109,15 +109,28 @@ document.querySelector('input[name="user_id"]).addEventListener('input', functio
 
 function showReview()
 {
+        if (!validateForm())
+        {
+                return;
+        }
+        
         let content = "";
 
         const first = document.querySelector('[name="first_name"]').value;
         const mi = document.querySelector('[name="middle_initial"]').value;
         const last = document.querySelector('[name="last_name"]').value;
-        content += `<strong>Name:</strong> ${first} ${mi} ${last}<br>`;
+        const fullName = mi ? `${first} ${mi} ${last}` : `${first} ${last}`;
+        content += `<strong>Name:</strong> ${fullName}<br>`;
 
         const dob = document.getElementById("dob").value;
-        content += `<strong>DOB:</strong> ${dob}<br>`;
+        let formattedDOB = "";
+
+                if (dob)
+                {
+                        const parts = dob.split("-");
+                        formattedDOB = `${parts[1]}/${parts[2]}/${parts[0]}`;
+                }
+        content += `<strong>DOB:</strong> ${formattedDOB}<br>`;
 
         const email = document.querySelector('[name="email"]').value;
         const phone = document.querySelector('[name="phone"]').value;
@@ -143,7 +156,7 @@ function showReview()
         let condList = [];
         conditions.forEach(c => condList.push(c.value));
 
-        content += `<strong>Medical History:</strong> ${condList.join(", ")}<br>`;
+        content += `<strong>Medical History:</strong> ${condList.length ? condList.join(", ") : "None"}<br>`;
    
         const pain = document.querySelector('[name="pain_scale"]').value;
         content += `<strong>Pain Level:</strong> ${pain}<br>`;
