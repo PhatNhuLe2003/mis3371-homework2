@@ -108,9 +108,16 @@ document.querySelector('input[name="phone"]').addEventListener('input', function
                         e.target.value = value.slice(0,3) + '-' + value.slice(3,6) + '-' + value.slice(6,10);
                                 else if (value.length >= 3)
                                         e.target.value = value.slice(0,3) + '-' + value.slice(3);
+                                        
                 else
                     e.target.value = value;                    
         });
+document.getElementById('ssn").addEventListener("input", function(e)
+        {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length. >=5)
+                        e.target.value = value.slice(0,3) + '-' + value.slice(3,5) + '-' + value.slice(5,9);
+        
 document.querySelector('input[name="user_id"]').addEventListener('input', function(e)
         {
                 e.target.value = e.target.value.toLowerCase();
